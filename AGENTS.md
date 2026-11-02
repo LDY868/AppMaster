@@ -28,8 +28,9 @@ Run the CLI under Node, never Bun.
 - Packaging owns `06-release-checklist.md` only; secrets never in model context — env/CI names and scripts/checklists only; no store upload APIs.
 - Desktop (`desktop/`) is an Electron **office workbench** over `agent-sdk serve`; shell IA + extension loader only — do not move orchestration into the renderer or rewrite `bot/`.
 - Extensions live under `desktop/extensions/*/manifest.json` (plus `~/.appmaster/extensions`); preload exposes a whitelist; main re-checks `permissions`.
-- Pipeline UI lives in workspace extension `mobile-outsource-studio`; sample tool: `json-formatter`.
+- Pipeline UI lives in workspace extension `mobile-outsource-studio`; sample tools: `json-formatter`, `avatar-image-gen` (个性头像).
 - Desktop-supporting tools: `approve_gate`, `get_project_state`, `read_artifact` (read/approve only).
+- Avatar capability: desktop tool `avatar-image-gen` + Agent tool `generate_avatar`; stub by default; live gated by `APPMASTER_IMAGE_API_KEY` / `OPENAI_API_KEY`.
 - `CURSOR_API_KEY` via env / `CURSOR_API_KEY_FILE` / Electron `safeStorage` — never print full keys in renderer logs.
 - Sample industry skills: `industry-coffee-ordering`, `implement-flutter`, `qa-coffee-ordering`, `packaging-flutter-coffee`.
 

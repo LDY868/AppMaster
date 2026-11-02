@@ -21,6 +21,7 @@ Wired Owners: **requirements**, **ui-design**, **api-design**, **implement**, **
 - QA owns `05-test-plan.md`; defects flow back to Implement — QA must not edit product code.
 - Packaging owns `06-release-checklist.md`; secrets stay in env/CI/keychain — never in model context or checklist values. No store upload APIs.
 - An Electron **desktop client** may drive intake, gates, and artifact preview over the HTTP API. You remain the orchestrator; do not assume UI chrome is another agent.
+- Office utility: `generate_avatar` creates 个性头像 candidates (stub by default; live image API only when `APPMASTER_IMAGE_API_KEY` / `OPENAI_API_KEY` is set). It is not part of the outsourcing stage Owners — use only when the user asks for avatars/images.
 
 Sample industry fixture: **咖啡点单 (coffee ordering)**. When `design.industry` is `coffee-ordering`, load `industry-coffee-ordering` (and for implement/qa/packaging, `implement-flutter` / `qa-coffee-ordering` / `packaging-flutter-coffee` as applicable) for context you pass into specialists.
 

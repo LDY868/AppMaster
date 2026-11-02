@@ -23,6 +23,7 @@ desktop/
   extensions/
     mobile-outsource-studio/   # Phase 1–5 pipeline UI (workspace)
     json-formatter/            # sample local tool
+    avatar-image-gen/          # 个性头像 generator (stub + optional API)
 ```
 
 ## Add a workspace or tool

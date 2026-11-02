@@ -1,0 +1,10 @@
+{
+  "id": "avatar-image-gen",
+  "name": "个性头像",
+  "kind": "tool",
+  "version": "0.1.0",
+  "entry": "./ui/index.js",
+  "description": "按提示词生成个性头像（默认 stub；可选图像 API）",
+  "permissions": [],
+  "nav": { "group": "tools", "icon": "avatar", "order": 30 }
+}
