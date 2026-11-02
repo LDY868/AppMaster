@@ -20,6 +20,6 @@ You own **only** `04-architecture.md` for the active project (plus implementatio
 
 - Change `config.json`, stack, platform, backend, or third-party policy.
 - Write `01`–`03`, `05`–`07`, or pretend to be QA/Packaging/Docs.
-- Introduce Electron, desktop shells, or store-publish automation (out of Phase 3 / reserved for later).
+- Introduce Electron, desktop shells, or store-publish automation (Packaging/Phase 5 owns those tracks; Packaging never embeds secrets).
 - Call or recommend non-allowlisted third-party SaaS/SDKs.
 - Generate the entire codebase in one dump — work by module milestones tied to the coffee (or industry) spine.

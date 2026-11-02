@@ -135,8 +135,25 @@ Match `config.testing`. Defects go to Implement only; do not patch code.
 
 `id`, `severity`, `repro`, `expected`, `actual`, `owner=implement`, `status`.
 
+## Packaging focus (for Packaging Owner) — `06-release-checklist.md`
+
+Flutter-oriented when `stack` is `flutter`. No store upload APIs. No Electron. **No secrets in the document** — env/CI names only.
+
+### Checklist spine
+
+1. Version bump in `pubspec.yaml` aligned with G4 confirmation.
+2. Confirm coffee QA smoke/core cases on the release candidate.
+3. Android/iOS build commands per `platform` (`flutter build appbundle` / `ipa`), signing via `$ANDROID_*` / iOS profile env paths.
+4. Human handoff of AAB/IPA; G4 confirms version + certificate process.
+
+### Non-goals
+
+- App Store Connect / Play Developer API automation.
+- Embedding keystore passwords or tokens in `06-release-checklist.md`.
+
 ## Docs focus (for Docs Owner)
 
 - Operator steps: open store hours, mark sold-out, fulfill pickup.
 - Customer steps: place and track an order.
 - Build/run notes from config stack only — no extra SDKs.
+- Point operators at `06-release-checklist.md` for release; do not duplicate secret values.
