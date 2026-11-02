@@ -1,0 +1,19 @@
+{
+  "name": "mobile-outsource-studio",
+  "private": true,
+  "type": "module",
+  "description": "Cursor Agent SDK orchestrator for mobile app outsourcing (Phase 1: intake + requirements + docs)",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "dev": "agent-sdk dev",
+    "validate": "agent-sdk validate --dir ."
+  },
+  "dependencies": {
+    "@grok/agent-sdk": "^0.5.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "6.0.3"
+  }
+}
