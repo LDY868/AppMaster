@@ -2,7 +2,7 @@
   "name": "mobile-outsource-studio",
   "private": true,
   "type": "module",
-  "description": "Cursor Agent SDK orchestrator for mobile app outsourcing (Phase 1: intake + requirements + docs)",
+  "description": "Cursor Agent SDK orchestrator for mobile app outsourcing (Phase 2: intake + requirements + UI + API + docs)",
   "scripts": {
     "check": "tsc --noEmit",
     "dev": "agent-sdk dev",

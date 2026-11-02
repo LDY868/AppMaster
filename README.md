@@ -2,7 +2,7 @@
 
 Cursor Agent SDK project: an **Orchestrator** plus specialist subagents for mobile app outsourcing.
 
-Phase 1 scopes intake, requirements, and delivery docs. Sample industry fixture: **咖啡点单 (coffee ordering)**.
+Phase 2 scopes intake, requirements, **UI design**, **API design**, and delivery docs. Sample industry fixture: **咖啡点单 (coffee ordering)**.
 
 ## Principles
 
@@ -21,9 +21,13 @@ bot/
   skills/                  # intake + industry-coffee-ordering
   subagents/
     requirements/          # Owner of 01-requirements.md
+    ui-design/             # Owner of 02-ui-spec.md
+    api-design/            # Owner of 03-api-spec.md
     docs/                  # Owner of 07-delivery-manual.md
   lib/pipeline.ts          # stage→owner + config helpers
-evals/smoke.eval.ts
+evals/
+  smoke.eval.ts            # Phase 1 intake smoke
+  phase2-ui-api.eval.ts    # Phase 2 UI/API routing smoke
 ```
 
 ## Local commands
@@ -35,6 +39,7 @@ npx tsc --noEmit -p .
 npx --yes "@grok/agent-sdk@0.5.0" dev .   # playground at http://127.0.0.1:3000/playground
 npx --yes "@grok/agent-sdk@0.5.0" run --dir . --message "新单：咖啡点单，请开始选择题 intake"
 npx --yes "@grok/agent-sdk@0.5.0" eval --dir . --tag smoke
+npx --yes "@grok/agent-sdk@0.5.0" eval --dir . --tag phase2
 ```
 
-Do not deploy from this Phase 1 scaffold unless you explicitly choose to.
+Do not deploy or build Electron from this Phase 2 scaffold unless you explicitly choose to.
