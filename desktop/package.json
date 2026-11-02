@@ -8,7 +8,7 @@
   "scripts": {
     "start": "electron . --no-sandbox",
     "dev": "electron . --no-sandbox --dev",
-    "check": "node --check electron/main.mjs && node --check electron/preload.cjs && node --check electron/agent-client.mjs && node --check electron/extensions.mjs && node --check electron/secure-store.mjs && node --check shell/app.js && node --check shell/nav.js && node --check shell/home.js && node --check extensions/mobile-outsource-studio/ui/index.js && node --check extensions/json-formatter/ui/index.js"
+    "check": "node --check electron/main.mjs && node --check electron/preload.cjs && node --check electron/agent-client.mjs && node --check electron/extensions.mjs && node --check electron/secure-store.mjs && node --check electron/avatar-gen.mjs && node --check shell/app.js && node --check shell/nav.js && node --check shell/home.js && node --check extensions/mobile-outsource-studio/ui/index.js && node --check extensions/json-formatter/ui/index.js && node --check extensions/avatar-image-gen/ui/index.js"
   },
   "devDependencies": {
     "electron": "^37.2.0"

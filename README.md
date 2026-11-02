@@ -28,6 +28,7 @@ desktop/                   # Electron office workbench
   extensions/
     mobile-outsource-studio/  # pipeline UI (workspace)
     json-formatter/           # sample tool
+    avatar-image-gen/         # 个性头像 (stub / optional image API)
 evals/
 ```
 
@@ -71,6 +72,15 @@ npm run desktop:check
 ```
 
 In the UI: **工作台 Home** → open **移动端外包 Studio** → **加载题库** → **保存并启动** → approve gates → preview artifacts.  
-Try **JSON 格式化** under Tools to verify extension loading. Add more via `desktop/extensions/` — see `desktop/extensions/README.md`.
+Try **JSON 格式化** or **个性头像** under Tools to verify extension loading. Add more via `desktop/extensions/` — see `desktop/extensions/README.md`.
+
+**个性头像** defaults to offline stub images. Optional live generation:
+
+```bash
+export APPMASTER_IMAGE_API_KEY=…   # or OPENAI_API_KEY
+# optional: APPMASTER_IMAGE_API_BASE / APPMASTER_IMAGE_MODEL
+```
+
+Agent SDK tool: `generate_avatar` (same stub/API semantics).
 
 Do **not** deploy this agent or the desktop shell to app stores from this phase.

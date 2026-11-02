@@ -38,7 +38,14 @@ Request only what you need:
 - `fs.projects` — list `projects/`
 - `secure.secrets` — set API key while this extension is active
 
-Empty `permissions` is fine for pure local tools (see `json-formatter`).
+Empty `permissions` is fine for pure local tools (see `json-formatter`, `avatar-image-gen`).
+
+### Bundled tools
+
+| id | kind | Notes |
+| --- | --- | --- |
+| `json-formatter` | tool | Pure renderer JSON pretty/minify |
+| `avatar-image-gen` | tool | 个性头像 — prompt → gallery; stub by default; live via `APPMASTER_IMAGE_API_KEY` / `OPENAI_API_KEY` (see that folder’s README) |
 
 ## UI entry module
 

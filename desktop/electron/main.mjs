@@ -17,6 +17,7 @@ import {
   listExtensions,
   resolveEntryPath,
 } from "./extensions.mjs";
+import { generateAvatars, imageApiStatus } from "./avatar-gen.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const AGENT_ROOT = path.resolve(DESKTOP_ROOT, "..");
@@ -488,9 +489,21 @@ function registerIpc() {
     if (!ext || ext.kind !== "tool") {
       throw new Error("tools.run requires an active tool extension");
     }
-    // Local tools run in the renderer by default; main process hook is a
-    // stub for future script runners.
-    return { ok: true, id, echo: input ?? null };
+    if (id && id !== ext.id) {
+      throw new Error(`tools.run id mismatch: active=${ext.id} requested=${id}`);
+    }
+    const toolId = String(id || ext.id);
+
+    if (toolId === "avatar-image-gen") {
+      const action = input?.action || "generate";
+      if (action === "status") {
+        return { ok: true, id: toolId, ...imageApiStatus() };
+      }
+      return generateAvatars(input || {});
+    }
+
+    // Other local tools run in the renderer; main hook echoes for telemetry.
+    return { ok: true, id: toolId, echo: input ?? null };
   });
 }
 
