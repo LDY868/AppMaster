@@ -16,7 +16,7 @@ export const STAGES = [
 
 export type Stage = (typeof STAGES)[number];
 
-/** Pipeline roles. Phase 2 wires requirements + ui-design + api-design + docs. */
+/** Pipeline roles. Phase 3 wires requirements + ui-design + api-design + implement + qa + docs. */
 export type Owner =
   | "orchestrator"
   | "requirements"

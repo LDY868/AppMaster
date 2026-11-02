@@ -2,7 +2,7 @@
 
 Cursor Agent SDK project: an **Orchestrator** plus specialist subagents for mobile app outsourcing.
 
-Phase 2 scopes intake, requirements, **UI design**, **API design**, and delivery docs. Sample industry fixture: **咖啡点单 (coffee ordering)**.
+Phase 3 scopes intake, requirements, UI, API, **implement**, **QA**, and delivery docs. Sample industry fixture: **咖啡点单 (coffee ordering)**. Default client stack in intake: **Flutter** (still driven by `config.json`).
 
 ## Principles
 
@@ -10,6 +10,7 @@ Phase 2 scopes intake, requirements, **UI design**, **API design**, and delivery
 - Default **no third-party** unless allowlisted in intake
 - Design from industry / platform standards (no Figma required)
 - Orchestrator only routes, gates, and summarizes; each stage has one Owner
+- Implement respects chosen stack; QA files defects back to Implement (no product-code edits)
 
 ## Layout
 
@@ -17,17 +18,20 @@ Phase 2 scopes intake, requirements, **UI design**, **API design**, and delivery
 bot/
   agent.ts                 # Orchestrator
   instructions.md
-  tools/                   # present_choices, save_config, route_stage, …
-  skills/                  # intake + industry-coffee-ordering
+  tools/                   # present_choices, save_config, route_stage, write_artifact, …
+  skills/                  # intake + coffee + flutter implement + qa-coffee
   subagents/
     requirements/          # Owner of 01-requirements.md
     ui-design/             # Owner of 02-ui-spec.md
     api-design/            # Owner of 03-api-spec.md
+    implement/             # Owner of 04-architecture.md (+ code guidance)
+    qa/                    # Owner of 05-test-plan.md
     docs/                  # Owner of 07-delivery-manual.md
   lib/pipeline.ts          # stage→owner + config helpers
 evals/
   smoke.eval.ts            # Phase 1 intake smoke
   phase2-ui-api.eval.ts    # Phase 2 UI/API routing smoke
+  phase3-implement-qa.eval.ts  # Phase 3 implement/QA routing smoke
 ```
 
 ## Local commands
@@ -40,6 +44,7 @@ npx --yes "@grok/agent-sdk@0.5.0" dev .   # playground at http://127.0.0.1:3000/
 npx --yes "@grok/agent-sdk@0.5.0" run --dir . --message "新单：咖啡点单，请开始选择题 intake"
 npx --yes "@grok/agent-sdk@0.5.0" eval --dir . --tag smoke
 npx --yes "@grok/agent-sdk@0.5.0" eval --dir . --tag phase2
+npx --yes "@grok/agent-sdk@0.5.0" eval --dir . --tag phase3
 ```
 
-Do not deploy or build Electron from this Phase 2 scaffold unless you explicitly choose to.
+Do not deploy or build Electron from this Phase 3 scaffold unless you explicitly choose to.
