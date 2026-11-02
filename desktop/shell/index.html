@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AppMaster</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <div class="app-frame">
+      <aside class="sidebar" aria-label="主导航">
+        <div class="brand-block">
+          <p class="brand">AppMaster</p>
+          <p class="tagline">日常办公工作台</p>
+        </div>
+        <nav class="nav" id="nav"></nav>
+      </aside>
+
+      <div class="main-col">
+        <main class="content" id="content" aria-live="polite"></main>
+        <footer class="status-bar" id="statusBar">
+          <div class="status-item">
+            <span class="dot" id="serveDot"></span>
+            <span id="serveLabel">Serve offline</span>
+          </div>
+          <div class="status-item" id="projectStatus">项目：—</div>
+          <div class="status-item mute" id="noticeStatus">就绪</div>
+        </footer>
+      </div>
+    </div>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

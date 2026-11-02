@@ -1,0 +1,11 @@
+{
+  "id": "mobile-outsource-studio",
+  "name": "移动端外包 Studio",
+  "kind": "workspace",
+  "version": "0.1.0",
+  "entry": "./ui/index.js",
+  "description": "选择题 intake → 阶段闸门 → 产物预览（Agent SDK 流水线）",
+  "agent": { "servePort": 3210, "cwd": "../.." },
+  "permissions": ["agent.http", "fs.projects", "secure.secrets"],
+  "nav": { "group": "workspaces", "icon": "pipeline", "order": 10 }
+}
