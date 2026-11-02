@@ -39,16 +39,20 @@ export default defineTool({
       { scope: "deployment" },
     );
 
-    const phase1Wired =
+    const wired =
       owner === "orchestrator" ||
       owner === "requirements" ||
+      owner === "ui-design" ||
+      owner === "api-design" ||
       owner === "docs";
 
     return {
       ...status,
       delegate: owner === "orchestrator" ? null : owner,
-      phase1Wired,
-      note: phase1Wired
+      wired,
+      /** @deprecated Prefer `wired`; kept for Phase 1 eval / prompt compatibility. */
+      phase1Wired: wired,
+      note: wired
         ? owner === "orchestrator"
           ? "Orchestrator owns this stage (intake / gates / summary only)."
           : `Delegate to the ${owner} subagent. Do not write its artifact yourself.`

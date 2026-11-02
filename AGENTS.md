@@ -15,13 +15,14 @@ npm run check
 
 Run the CLI under Node, never Bun.
 
-## Phase 1 invariants
+## Phase 2 invariants
 
 - Orchestrator does not write `01`–`07` specialist artifacts.
 - Intake is multiple-choice via `present_choices` → `save_config`.
 - Third-party calls go through `guard_third_party` (default deny).
 - `route_stage` names the sole Owner before delegation.
-- Sample industry skill: `industry-coffee-ordering`.
+- Wired Owners: `requirements`, `ui-design`, `api-design`, `docs`.
+- Sample industry skill: `industry-coffee-ordering` (includes UI + API guidance).
 
 ## Layout
 
@@ -33,6 +34,7 @@ Run the CLI under Node, never Bun.
 
 ## Do not
 
-- Expand UI/API/Implement Owners beyond stubs in Phase 1.
+- Expand Implement / QA / Packaging Owners beyond reserved stubs in Phase 2.
+- Build Electron or deploy from this phase unless explicitly asked.
 - Add npm deps on a first cut beyond what `@grok/agent-sdk` ships.
 - Point `serve` at a parent folder during bring-up.
