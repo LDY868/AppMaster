@@ -44,6 +44,8 @@ export default defineTool({
       owner === "requirements" ||
       owner === "ui-design" ||
       owner === "api-design" ||
+      owner === "implement" ||
+      owner === "qa" ||
       owner === "docs";
 
     return {

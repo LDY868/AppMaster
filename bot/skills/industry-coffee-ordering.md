@@ -1,5 +1,5 @@
 ---
-description: Use for 咖啡点单 / coffee-ordering industry jobs — menu, customize, cart, checkout, pickup status — when design.industry is coffee-ordering.
+description: Use for 咖啡点单 / coffee-ordering industry jobs — menu, customize, cart, checkout, pickup status, implement milestones, and QA cases — when design.industry is coffee-ordering.
 ---
 
 # Industry: 咖啡点单 (coffee ordering)
@@ -84,6 +84,56 @@ Align resources with the screen inventory. Default backend posture: OpenAPI + Mo
 - Error model: `code`, `message`, `field?` (e.g. `MODIFIER_CONFLICT`, `STORE_CLOSED`, `SOLD_OUT`).
 - Auth: anonymous device session or simple customer id by default — no third-party auth SDK.
 - Mock: deterministic fixtures for menu + one in-progress order for status UI.
+
+## Implement focus (for Implement Owner) — `04-architecture.md` + code
+
+Respect `config.stack` (Flutter recommended). No Electron. No third-party SDKs unless allowlisted.
+
+### Module milestones (do not one-shot the whole app)
+
+1. **App shell + navigation** — tabs/stack from UI spec; theme tokens stub.
+2. **Menu browse** — categories/items from OpenAPI mock; sold-out state.
+3. **Customize** — modifier groups, defaults, conflict validation.
+4. **Cart** — lines, qty, price snapshot, ETA placeholder.
+5. **Checkout + place order** — pickup slot; payment placeholder only.
+6. **Order status** — poll/status UI; cancel within window.
+
+### Flutter default (`stack: flutter`)
+
+- Packages: Flutter SDK + generated OpenAPI/mock client only — no Firebase/maps/auth SaaS.
+- Suggest layers: `lib/ui/`, `lib/domain/`, `lib/data/` (API + mock), `lib/app/` (router/theme).
+- State: keep simple (e.g. provider/riverpod-style or inherited) — document choice in `04`; do not add disallowed SDKs.
+- Milestone PRs: one module spine step per slice; architecture doc lists build/run (`flutter pub get`, `flutter test`, mock base URL).
+
+### Other stacks
+
+- `rn` / `native`: same milestones and API contracts; swap folder/tooling notes only.
+- Never invent a stack when `defer` — return to orchestrator.
+
+## QA focus (for QA Owner) — `05-test-plan.md`
+
+Match `config.testing`. Defects go to Implement only; do not patch code.
+
+### Core path (always when depth ≥ smoke+core)
+
+| Id | Case |
+| --- | --- |
+| C-SMOKE-01 | App launches to store/menu without crash |
+| C-CORE-01 | Browse → customize → add to cart → checkout → placed status |
+| C-CORE-02 | Order status advances (or mock fixture) to ready |
+| C-EDGE-01 | Sold-out item cannot be added |
+| C-EDGE-02 | Store closed blocks checkout |
+| C-EDGE-03 | Cancel within window succeeds; after window fails |
+
+### Depth
+
+- `smoke` → C-SMOKE-01 (+ launch to menu).
+- `smoke+core` → smoke + C-CORE-* + C-EDGE-*.
+- `smoke+automation` → above + short Flutter/`flutter test` (or stack-equivalent) starter list for menu + cart only — still no third-party device farm unless allowlisted.
+
+### Defect table columns
+
+`id`, `severity`, `repro`, `expected`, `actual`, `owner=implement`, `status`.
 
 ## Docs focus (for Docs Owner)
 
