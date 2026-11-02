@@ -1,0 +1,16 @@
+{
+  "name": "appmaster-desktop",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Electron shell for Mobile Outsource Studio (Agent SDK client)",
+  "main": "main.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "electron . --no-sandbox",
+    "dev": "electron . --no-sandbox --dev",
+    "check": "node --check main.mjs && node --check preload.cjs && node --check lib/agent-client.mjs && node --check renderer/app.js"
+  },
+  "devDependencies": {
+    "electron": "^37.2.0"
+  }
+}

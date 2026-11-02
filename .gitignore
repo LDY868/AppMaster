@@ -1,5 +1,7 @@
 node_modules
+desktop/node_modules
 .env
 .env.local
 .agent-serve
 memory
+*.log
