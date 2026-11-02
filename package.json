@@ -2,7 +2,7 @@
   "name": "mobile-outsource-studio",
   "private": true,
   "type": "module",
-  "description": "Cursor Agent SDK orchestrator for mobile app outsourcing (Phase 5: + Electron desktop shell)",
+  "description": "Cursor Agent SDK orchestrator + Electron office workbench (Phase 6)",
   "scripts": {
     "check": "tsc --noEmit",
     "dev": "agent-sdk dev",

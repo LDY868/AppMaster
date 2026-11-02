@@ -1,0 +1,10 @@
+{
+  "id": "json-formatter",
+  "name": "JSON 格式化",
+  "kind": "tool",
+  "version": "0.1.0",
+  "entry": "./ui/index.js",
+  "description": "本地 JSON 美化 / 压缩（无 Agent）",
+  "permissions": [],
+  "nav": { "group": "tools", "icon": "json", "order": 20 }
+}

@@ -16,7 +16,7 @@ npm run desktop:install && npm run desktop:check
 
 Run the CLI under Node, never Bun.
 
-## Phase 5 invariants
+## Phase 5–6 invariants
 
 - Orchestrator does not write `01`–`07` specialist artifacts.
 - Intake is multiple-choice via `present_choices` → `save_config`.
@@ -26,7 +26,9 @@ Run the CLI under Node, never Bun.
 - Implement respects `config.stack` (Flutter default/recommended).
 - QA owns `05-test-plan.md` only; defects return to Implement.
 - Packaging owns `06-release-checklist.md` only; secrets never in model context — env/CI names and scripts/checklists only; no store upload APIs.
-- Desktop (`desktop/`) is an Electron **client** over `agent-sdk serve`; do not move orchestration into the renderer.
+- Desktop (`desktop/`) is an Electron **office workbench** over `agent-sdk serve`; shell IA + extension loader only — do not move orchestration into the renderer or rewrite `bot/`.
+- Extensions live under `desktop/extensions/*/manifest.json` (plus `~/.appmaster/extensions`); preload exposes a whitelist; main re-checks `permissions`.
+- Pipeline UI lives in workspace extension `mobile-outsource-studio`; sample tool: `json-formatter`.
 - Desktop-supporting tools: `approve_gate`, `get_project_state`, `read_artifact` (read/approve only).
 - `CURSOR_API_KEY` via env / `CURSOR_API_KEY_FILE` / Electron `safeStorage` — never print full keys in renderer logs.
 - Sample industry skills: `industry-coffee-ordering`, `implement-flutter`, `qa-coffee-ordering`, `packaging-flutter-coffee`.
@@ -37,7 +39,9 @@ Run the CLI under Node, never Bun.
 - `bot/tools/<name>.ts` — one tool per file
 - `bot/lib/` — shared code (not discovered)
 - `bot/subagents/<id>/` — specialists (`description` required)
-- `desktop/` — Electron main + preload + renderer (not discovered by Agent SDK)
+- `desktop/electron` — main / preload / extension scanner
+- `desktop/shell` — Home / nav / status bar
+- `desktop/extensions` — workspace & tool UIs (not discovered by Agent SDK)
 - `evals/` — filesystem evals (`evals/evals.config.ts` required)
 
 ## Do not
