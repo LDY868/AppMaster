@@ -2,11 +2,15 @@
   "name": "mobile-outsource-studio",
   "private": true,
   "type": "module",
-  "description": "Cursor Agent SDK orchestrator for mobile app outsourcing (Phase 4: + packaging release checklist)",
+  "description": "Cursor Agent SDK orchestrator for mobile app outsourcing (Phase 5: + Electron desktop shell)",
   "scripts": {
     "check": "tsc --noEmit",
     "dev": "agent-sdk dev",
-    "validate": "agent-sdk validate --dir ."
+    "validate": "agent-sdk validate --dir .",
+    "desktop:install": "npm install --prefix desktop",
+    "desktop:check": "npm run check --prefix desktop",
+    "desktop:start": "npm start --prefix desktop",
+    "desktop:dev": "npm run dev --prefix desktop"
   },
   "dependencies": {
     "@grok/agent-sdk": "^0.5.0",
